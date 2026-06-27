@@ -27,12 +27,12 @@ const PRODUCTS = [
 
 export function MiningProducts() {
   return (
-    <section style={{ padding: "5rem 0", background: "#08080A" }}>
-      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 2rem" }}>
+    <section style={{ padding: "5rem 0", background: "#06060A" }}>
+      <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 2.5rem" }}>
 
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-          <p style={{ fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.12em", color: "#00C896", marginBottom: "0.75rem" }}>
+          <p style={{ fontSize: "0.68rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.14em", color: "#00C896", marginBottom: "0.75rem" }}>
             Mining Solutions
           </p>
           <h2 style={{ fontSize: "clamp(1.75rem, 4vw, 2.5rem)", fontWeight: 700, color: "#F0F4F8" }}>
@@ -40,59 +40,66 @@ export function MiningProducts() {
           </h2>
         </div>
 
-        {/* Product cards */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1rem" }}>
+        {/* Product cards — horizontal layout matching reference */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "1rem" }}>
           {PRODUCTS.map((product) => (
             <div
               key={product.name}
               style={{
-                background: "#141418",
+                background: "#101016",
                 border: "1px solid rgba(255,255,255,0.07)",
-                borderRadius: "1rem",
+                borderRadius: "0.875rem",
                 overflow: "hidden",
-                transition: "border-color 0.3s",
                 display: "flex",
                 flexDirection: "column",
+                transition: "border-color 0.25s",
               }}
               onMouseEnter={e => (e.currentTarget.style.borderColor = "rgba(0,200,150,0.3)")}
               onMouseLeave={e => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.07)")}
             >
-              {/* Image area */}
-              <div style={{
-                height: "13rem",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                padding: "1.5rem",
-                background: "rgba(0,0,0,0.4)",
-                overflow: "hidden",
-              }}>
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  width={220}
-                  height={180}
-                  style={{ objectFit: "contain", maxHeight: "10rem", width: "auto", transition: "transform 0.4s" }}
-                />
-              </div>
+              {/* Product image — horizontal layout, image on left inside card */}
+              <div style={{ display: "flex", alignItems: "stretch" }}>
 
-              {/* Content */}
-              <div style={{ padding: "1.5rem", display: "flex", flexDirection: "column", flex: 1 }}>
-                <p style={{ fontSize: "0.7rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", color: "#00C896", marginBottom: "0.5rem" }}>
-                  {product.category}
-                </p>
-                <h3 style={{ fontSize: "1.2rem", fontWeight: 700, color: "#F0F4F8", marginBottom: "0.75rem" }}>
-                  {product.name}
-                </h3>
-                <p style={{ fontSize: "0.875rem", color: "#94A3B8", lineHeight: 1.65, marginBottom: "1.25rem", flex: 1 }}>
-                  {product.description}
-                </p>
-                <Link
-                  href={product.href}
-                  style={{ display: "inline-flex", alignItems: "center", gap: "0.375rem", fontSize: "0.875rem", fontWeight: 500, color: "#00C896", textDecoration: "none" }}
-                >
-                  Learn more →
-                </Link>
+                {/* Image column */}
+                <div style={{
+                  width: "38%",
+                  flexShrink: 0,
+                  background: "rgba(0,0,0,0.5)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  padding: "1.25rem 0.875rem",
+                  minHeight: "180px",
+                }}>
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    width={160}
+                    height={160}
+                    style={{ objectFit: "contain", width: "100%", height: "auto", maxHeight: "140px" }}
+                  />
+                </div>
+
+                {/* Content column */}
+                <div style={{ flex: 1, padding: "1.25rem 1.125rem", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+                  <div>
+                    <p style={{ fontSize: "0.62rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", color: "#00C896", marginBottom: "0.375rem" }}>
+                      {product.category}
+                    </p>
+                    <h3 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#F0F4F8", marginBottom: "0.625rem", lineHeight: 1.3 }}>
+                      {product.name}
+                    </h3>
+                    <p style={{ fontSize: "0.78rem", color: "#6B7A8D", lineHeight: 1.65, marginBottom: "1rem" }}>
+                      {product.description}
+                    </p>
+                  </div>
+                  <Link
+                    href={product.href}
+                    style={{ display: "inline-flex", alignItems: "center", gap: "0.3rem", fontSize: "0.8rem", fontWeight: 500, color: "#00C896", textDecoration: "none" }}
+                  >
+                    Learn more →
+                  </Link>
+                </div>
               </div>
             </div>
           ))}
