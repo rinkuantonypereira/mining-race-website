@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+:root {
+  --font-inter: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: #08080A;
+  color: #F0F4F8;
+  font-family: var(--font-inter);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #08080A; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(0,200,150,0.4); }
+
+/* Selection */
+::selection { background: rgba(0,200,150,0.2); color: #F0F4F8; }
+
+/* Focus visible */
+:focus-visible {
+  outline: 2px solid #00C896;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Teal glow utility */
+.teal-glow {
+  box-shadow: 0 0 24px rgba(0,200,150,0.15);
+}
+
+/* Section spacing */
+.section { padding: 6rem 0; }
+.section-sm { padding: 4rem 0; }
+.container-mr {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #00C896 0%, #00E5B0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass card */
+.glass-card {
+  background: rgba(26,26,32,0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.07);
+}
+
+/* Callout quote style (used for risk disclaimers) */
+.callout-quote {
+  border-left: 3px solid #00C896;
+  padding: 1rem 1.25rem;
+  background: rgba(0,200,150,0.04);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: #94A3B8;
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+/* Accordion — uses max-height not display:none for SEO */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+.accordion-content.open {
+  max-height: 500px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
