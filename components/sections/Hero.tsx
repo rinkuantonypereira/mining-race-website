@@ -222,7 +222,7 @@ export function Hero({ onDownload }: HeroProps) {
           </div>
 
           {/* Right — mascot */}
-          <div style={{ position: "relative", display: "flex", alignItems: "flex-end", justifyContent: "center", minHeight: "75vh" }}>
+          <div style={{ position: "relative", display: "flex", alignItems: "flex-start", justifyContent: "flex-end", minHeight: "75vh", paddingTop: "1rem" }}>
             <p style={{ position: "absolute", bottom: "4rem", right: 0, color: "#3D4F63", fontSize: "0.85rem", lineHeight: 1.7, textAlign: "right", zIndex: 10 }}>
               The Fastest<br />Driven Bitcoin<br />Movement
             </p>
@@ -231,7 +231,7 @@ export function Hero({ onDownload }: HeroProps) {
               alt="Mining RACE racer mascot"
               width={480}
               height={680}
-              style={{ objectFit: "contain", maxHeight: "82vh", width: "auto" }}
+              style={{ objectFit: "contain", maxHeight: "82vh", width: "auto", mixBlendMode: "lighten" }}
               priority
             />
           </div>
