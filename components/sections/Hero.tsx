@@ -231,7 +231,15 @@ export function Hero({ onDownload }: HeroProps) {
               alt="Mining RACE racer mascot"
               width={480}
               height={680}
-              style={{ objectFit: "contain", maxHeight: "82vh", width: "auto", mixBlendMode: "lighten" }}
+              style={{
+                objectFit: "contain",
+                maxHeight: "82vh",
+                width: "auto",
+                maskImage: "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 8%, black 90%, transparent 100%)",
+                WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 8%, black 90%, transparent 100%)",
+                maskComposite: "intersect",
+                WebkitMaskComposite: "source-in",
+              }}
               priority
             />
           </div>
