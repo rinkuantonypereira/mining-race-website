@@ -17,13 +17,13 @@ const FOOTER_LINKS = {
     { label: "About", href: "/about" },
     { label: "Support", href: "/support" },
     { label: "Partner with Us", href: "/partner" },
-    { label: "Terminology", href: "#" },
+    { label: "Terminology", href: "/terminology" },
   ],
   Miscellaneous: [
-    { label: "Merchandise", href: "#" },
-    { label: "Blockchain Explorer", href: "#" },
-    { label: "Privacy Policy", href: "#" },
-    { label: "Terms of Use", href: "#" },
+    { label: "Merchandise", href: "/merchandise" },
+    { label: "Blockchain Explorer", href: "/explorer" },
+    { label: "Privacy Policy", href: "/privacy" },
+    { label: "Terms of Use", href: "/terms" },
   ],
 };
 
@@ -74,7 +74,7 @@ export function Footer() {
               </h4>
               <ul className="flex flex-col gap-2">
                 {links.map((link) => (
-                  <li key={link.href}>
+                  <li key={link.label}>
                     <Link
                       href={link.href}
                       className="text-sm text-mr-gray hover:text-mr-white transition-colors"
@@ -104,8 +104,8 @@ export function Footer() {
             © {new Date().getFullYear()} Mining RACE. All rights reserved.
           </p>
           <div className="flex gap-4">
-            <Link href="#" className="text-xs text-mr-muted hover:text-mr-white transition-colors">Privacy Policy</Link>
-            <Link href="#" className="text-xs text-mr-muted hover:text-mr-white transition-colors">Terms of Use</Link>
+            <Link href="/privacy" className="text-xs text-mr-muted hover:text-mr-white transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="text-xs text-mr-muted hover:text-mr-white transition-colors">Terms of Use</Link>
           </div>
         </div>
       </div>
