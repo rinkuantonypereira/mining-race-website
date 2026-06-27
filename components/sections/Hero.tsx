@@ -178,6 +178,34 @@ export function Hero({ onDownload }: HeroProps) {
       {/* Teal top accent line */}
       <div style={{ position: "absolute", top: "64px", left: 0, right: 0, height: "2px", background: "linear-gradient(90deg, #00C896, rgba(0,200,150,0.3) 30%, transparent 60%)", zIndex: 20 }} />
 
+      {/* Mascot — absolute positioned flush to extreme right */}
+      <div style={{
+        position: "absolute", right: 0, top: 0, bottom: 0,
+        zIndex: 8, display: "flex", alignItems: "center", justifyContent: "flex-end",
+        width: "50%",
+      }}>
+        <Image
+          src="/images/mascot.png"
+          alt="Mining RACE racer mascot"
+          width={600}
+          height={850}
+          style={{
+            objectFit: "contain",
+            height: "92vh",
+            width: "auto",
+            marginRight: "-2rem",
+            maskImage: "linear-gradient(to right, transparent 0%, black 15%, black 100%), linear-gradient(to bottom, transparent 0%, black 8%, black 90%, transparent 100%)",
+            WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 15%, black 100%), linear-gradient(to bottom, transparent 0%, black 8%, black 90%, transparent 100%)",
+            maskComposite: "intersect",
+            WebkitMaskComposite: "source-in",
+          }}
+          priority
+        />
+        <p style={{ position: "absolute", bottom: "15%", right: "8%", color: "#3D4F63", fontSize: "0.85rem", lineHeight: 1.7, textAlign: "right" }}>
+          The Fastest<br />Driven Bitcoin<br />Movement
+        </p>
+      </div>
+
       <div style={{ position: "relative", zIndex: 10, width: "100%", maxWidth: "1280px", margin: "0 auto", padding: "5rem 2.5rem 3rem" }}>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem", alignItems: "center", minHeight: "calc(100vh - 8rem)" }}>
 
@@ -221,27 +249,8 @@ export function Hero({ onDownload }: HeroProps) {
             </div>
           </div>
 
-          {/* Right — mascot */}
-          <div style={{ position: "relative", display: "flex", alignItems: "flex-start", justifyContent: "flex-end", minHeight: "75vh", paddingTop: "1rem" }}>
-            <p style={{ position: "absolute", bottom: "4rem", right: 0, color: "#3D4F63", fontSize: "0.85rem", lineHeight: 1.7, textAlign: "right", zIndex: 10 }}>
-              The Fastest<br />Driven Bitcoin<br />Movement
-            </p>
-            <Image
-              src="/images/mascot.png"
-              alt="Mining RACE racer mascot"
-              width={480}
-              height={680}
-              style={{
-                objectFit: "contain",
-                maxHeight: "82vh",
-                width: "auto",
-                maskImage: "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 8%, black 90%, transparent 100%)",
-                WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 8%, black 90%, transparent 100%)",
-                maskComposite: "intersect",
-                WebkitMaskComposite: "source-in",
-              }}
-              priority
-            />
+          {/* Right — empty spacer for mascot (absolute positioned above) */}
+          <div style={{ minHeight: "75vh" }}>
           </div>
         </div>
       </div>
