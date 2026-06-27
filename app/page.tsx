@@ -24,7 +24,7 @@ export default function HomePage() {
         <MiningProducts />
         <PowerNodes />
         <GridDiagram />
-        <AppShowcase />
+        <AppShowcase onDownload={() => setModalOpen(true)} />
         <DownloadCTA onDownload={() => setModalOpen(true)} />
       </main>
       <Footer />
