@@ -76,14 +76,42 @@ function StatItem({ stat }: { stat: typeof STATS[0] }) {
 
 export function StatsBar() {
   return (
-    <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", borderBottom: "1px solid rgba(255,255,255,0.06)", background: "#0C0C12" }}>
+    <div style={{ background: "#06060A", padding: "2rem 0" }}>
       <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 2.5rem" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)" }}>
-          {STATS.map((stat, i) => (
-            <div key={stat.label} style={{ borderRight: i < 3 ? "1px solid rgba(255,255,255,0.06)" : "none" }}>
-              <StatItem stat={stat} />
-            </div>
-          ))}
+        <div style={{
+          background: "#0C0C12",
+          borderRadius: "1rem",
+          border: "1px solid rgba(255,255,255,0.07)",
+          position: "relative",
+          overflow: "hidden",
+        }}>
+          {/* Teal top glow */}
+          <div style={{
+            position: "absolute",
+            top: 0,
+            left: "50%",
+            transform: "translateX(-50%)",
+            width: "60%",
+            height: "2px",
+            background: "linear-gradient(90deg, transparent, #00C896, transparent)",
+          }} />
+          <div style={{
+            position: "absolute",
+            top: 0,
+            left: "50%",
+            transform: "translateX(-50%)",
+            width: "40%",
+            height: "40px",
+            background: "radial-gradient(ellipse at top, rgba(0,200,150,0.12), transparent)",
+            pointerEvents: "none",
+          }} />
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)" }}>
+            {STATS.map((stat, i) => (
+              <div key={stat.label} style={{ borderRight: i < 3 ? "1px solid rgba(255,255,255,0.06)" : "none" }}>
+                <StatItem stat={stat} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

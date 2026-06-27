@@ -35,9 +35,13 @@ export function MiningProducts() {
           <p style={{ fontSize: "0.68rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.14em", color: "#00C896", marginBottom: "0.75rem" }}>
             Mining Solutions
           </p>
-          <h2 style={{ fontSize: "clamp(1.75rem, 4vw, 2.5rem)", fontWeight: 700, color: "#F0F4F8" }}>
-            Direct Mining Products
-          </h2>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "1.5rem" }}>
+            <div style={{ flex: 1, maxWidth: "200px", height: "1px", background: "linear-gradient(to right, transparent, rgba(255,255,255,0.15))" }} />
+            <h2 style={{ fontSize: "clamp(1.75rem, 4vw, 2.5rem)", fontWeight: 700, color: "#F0F4F8", whiteSpace: "nowrap" }}>
+              Direct Mining Products
+            </h2>
+            <div style={{ flex: 1, maxWidth: "200px", height: "1px", background: "linear-gradient(to left, transparent, rgba(255,255,255,0.15))" }} />
+          </div>
         </div>
 
         {/* Product cards — horizontal layout matching reference */}

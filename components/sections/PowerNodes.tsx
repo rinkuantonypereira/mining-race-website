@@ -11,7 +11,7 @@ export function PowerNodes() {
   return (
     <section style={{ padding: "5rem 0", background: "#0F0F13" }}>
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 2rem" }}>
-        <div style={{ border: "1px solid rgba(0,200,150,0.15)", borderRadius: "1rem", overflow: "hidden", background: "#141418" }}>
+        <div style={{ border: "1px solid rgba(0,200,150,0.25)", borderRadius: "1rem", overflow: "hidden", background: "#141418", boxShadow: "0 0 30px rgba(0,200,150,0.06)" }}>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
 
             {/* Left */}

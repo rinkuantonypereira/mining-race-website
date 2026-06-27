@@ -14,9 +14,12 @@ const PRODUCTS_NAV = [
   { label: "Power NODES", href: "/products/power-nodes" },
 ];
 
-const NAV_LINKS = [
-  { label: "How it Works", href: "/how-it-works" },
+const NAV_BEFORE_PRODUCTS = [
+  { label: "How It Works", href: "/how-it-works" },
   { label: "Inside Mining RACE", href: "/inside-mining-race" },
+];
+
+const NAV_AFTER_NODES = [
   { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
   { label: "Events & Media", href: "/events" },
@@ -58,6 +61,16 @@ export function Navbar() {
             {/* Desktop nav */}
             <div className="hidden xl:flex items-center gap-1 flex-1">
 
+              {NAV_BEFORE_PRODUCTS.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="px-3 py-2 text-sm text-mr-gray hover:text-mr-white transition-colors rounded-lg"
+                >
+                  {link.label}
+                </Link>
+              ))}
+
               {/* Products dropdown */}
               <div className="relative" onMouseLeave={() => setProductsOpen(false)}>
                 <button
@@ -87,7 +100,7 @@ export function Navbar() {
                 Power NODES
               </Link>
 
-              {NAV_LINKS.map((link) => (
+              {NAV_AFTER_NODES.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
@@ -100,15 +113,15 @@ export function Navbar() {
 
             {/* Right actions */}
             <div className="hidden xl:flex items-center gap-2 ml-auto">
-              <Link href="/calculator" className="flex items-center gap-1.5 px-3 py-2 text-sm text-mr-gray hover:text-mr-white transition-colors rounded-lg">
+              <Link href="/calculator" className="flex items-center gap-1.5 px-4 py-1.5 text-sm text-brand-teal border border-brand-teal rounded-full hover:bg-brand-tealDim transition-colors">
                 <Calculator size={15} /> Calculator
               </Link>
-              <Link href="#" className="flex items-center gap-1.5 px-3 py-2 text-sm text-mr-gray hover:text-mr-white transition-colors rounded-lg">
+              <Link href="#" className="flex items-center gap-1.5 px-4 py-1.5 text-sm text-brand-teal border border-brand-teal rounded-full hover:bg-brand-tealDim transition-colors">
                 <LayoutDashboard size={15} /> Dashboard
               </Link>
               <button
                 onClick={() => setModalOpen(true)}
-                className="ml-2 px-4 py-2 text-sm font-medium text-mr-black bg-brand-teal rounded-xl hover:opacity-90 transition-opacity"
+                className="ml-1 px-5 py-1.5 text-sm font-medium text-mr-black bg-brand-teal rounded-full hover:opacity-90 transition-opacity"
               >
                 Login
               </button>
@@ -127,6 +140,17 @@ export function Navbar() {
           {/* Mobile menu */}
           {mobileOpen && (
             <div className="xl:hidden bg-mr-dark border-t border-mr-border py-4 px-2">
+              {NAV_BEFORE_PRODUCTS.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="block px-3 py-2 text-sm text-mr-gray hover:text-mr-white transition-colors"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ))}
+
               {/* Products accordion */}
               <button
                 className="flex items-center justify-between w-full px-3 py-2 text-sm text-mr-gray hover:text-mr-white"
@@ -149,7 +173,15 @@ export function Navbar() {
                 </div>
               )}
 
-              {NAV_LINKS.map((link) => (
+              <Link
+                href="/products/power-nodes"
+                className="block px-3 py-2 text-sm text-mr-gray hover:text-mr-white transition-colors"
+                onClick={() => setMobileOpen(false)}
+              >
+                Power NODES
+              </Link>
+
+              {NAV_AFTER_NODES.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
