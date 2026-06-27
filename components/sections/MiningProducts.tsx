@@ -8,7 +8,6 @@ const PRODUCTS = [
     description: "Tap into Full Power with high-performance hardware delivering 200+ TH/s for maximum mining output. Hosting is charged separately for flexible, large-scale operations.",
     image: "/images/mining-device.png",
     href: "/products/mining-devices",
-    accent: "text-mr-gray",
   },
   {
     category: "Fixed Power",
@@ -16,7 +15,6 @@ const PRODUCTS = [
     description: "Access Fixed Power with 100 TH/s per Mining Card, active for 90 days, stackable and auto-renewable for uninterrupted mining. Ideal for those seeking simplicity without hardware management.",
     image: "/images/mining-card.png",
     href: "/products/mining-cards",
-    accent: "text-mr-gray",
   },
   {
     category: "Racing Power",
@@ -24,65 +22,74 @@ const PRODUCTS = [
     description: "Experience Racing Power with 1 TH/s units removable yearly and designed for unlimited dynamic bonus rewards. Each Core competes in Sprint and Block Races for added earning potential.",
     image: "/images/mining-core.png",
     href: "/products/mining-cores",
-    accent: "text-brand-teal",
   },
 ];
 
 export function MiningProducts() {
   return (
-    <section className="section" style={{ background: "#08080A" }}>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section style={{ padding: "5rem 0", background: "#08080A" }}>
+      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 2rem" }}>
+
         {/* Header */}
-        <div className="text-center mb-12">
-          <p className="text-xs font-semibold uppercase tracking-widest text-brand-teal mb-3">
+        <div style={{ textAlign: "center", marginBottom: "3rem" }}>
+          <p style={{ fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.12em", color: "#00C896", marginBottom: "0.75rem" }}>
             Mining Solutions
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white">
+          <h2 style={{ fontSize: "clamp(1.75rem, 4vw, 2.5rem)", fontWeight: 700, color: "#F0F4F8" }}>
             Direct Mining Products
           </h2>
         </div>
 
         {/* Product cards */}
-        <div className="grid md:grid-cols-3 gap-4">
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1rem" }}>
           {PRODUCTS.map((product) => (
             <div
               key={product.name}
-              className="group rounded-2xl border transition-all duration-300"
               style={{
                 background: "#141418",
-                borderColor: "rgba(255,255,255,0.07)",
+                border: "1px solid rgba(255,255,255,0.07)",
+                borderRadius: "1rem",
+                overflow: "hidden",
+                transition: "border-color 0.3s",
+                display: "flex",
+                flexDirection: "column",
               }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(0,200,150,0.3)";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(255,255,255,0.07)";
-              }}
+              onMouseEnter={e => (e.currentTarget.style.borderColor = "rgba(0,200,150,0.3)")}
+              onMouseLeave={e => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.07)")}
             >
-              {/* Product image */}
-              <div className="relative h-48 flex items-center justify-center p-6 overflow-hidden rounded-t-2xl"
-                style={{ background: "rgba(0,0,0,0.3)" }}>
+              {/* Image area */}
+              <div style={{
+                height: "13rem",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "1.5rem",
+                background: "rgba(0,0,0,0.4)",
+                overflow: "hidden",
+              }}>
                 <Image
                   src={product.image}
                   alt={product.name}
-                  width={200}
+                  width={220}
                   height={180}
-                  className="object-contain max-h-40 w-auto transition-transform duration-500 group-hover:scale-105"
+                  style={{ objectFit: "contain", maxHeight: "10rem", width: "auto", transition: "transform 0.4s" }}
                 />
               </div>
 
               {/* Content */}
-              <div className="p-6">
-                <p className="text-xs font-semibold uppercase tracking-widest text-brand-teal mb-2">
+              <div style={{ padding: "1.5rem", display: "flex", flexDirection: "column", flex: 1 }}>
+                <p style={{ fontSize: "0.7rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", color: "#00C896", marginBottom: "0.5rem" }}>
                   {product.category}
                 </p>
-                <h3 className="text-xl font-bold text-white mb-3">{product.name}</h3>
-                <p className="text-mr-gray text-sm leading-relaxed mb-5">
+                <h3 style={{ fontSize: "1.2rem", fontWeight: 700, color: "#F0F4F8", marginBottom: "0.75rem" }}>
+                  {product.name}
+                </h3>
+                <p style={{ fontSize: "0.875rem", color: "#94A3B8", lineHeight: 1.65, marginBottom: "1.25rem", flex: 1 }}>
                   {product.description}
                 </p>
                 <Link
                   href={product.href}
-                  className="inline-flex items-center gap-2 text-sm font-medium text-brand-teal hover:gap-3 transition-all"
+                  style={{ display: "inline-flex", alignItems: "center", gap: "0.375rem", fontSize: "0.875rem", fontWeight: 500, color: "#00C896", textDecoration: "none" }}
                 >
                   Learn more →
                 </Link>
