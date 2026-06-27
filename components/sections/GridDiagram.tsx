@@ -16,13 +16,11 @@ export function GridDiagram() {
     <section style={{ padding: "3rem 0 5rem", background: "#06060A" }}>
       <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 2.5rem" }}>
         <div style={{
-          border: "1px solid rgba(0,200,150,0.15)",
+          border: "1px solid rgba(0,200,150,0.2)",
           borderRadius: "1rem",
           padding: "3rem 2.5rem",
-          background: "rgba(14,18,24,0.5)",
-          backdropFilter: "blur(12px)",
-          WebkitBackdropFilter: "blur(12px)",
-          boxShadow: "0 0 30px rgba(0,200,150,0.03), inset 0 1px 0 rgba(255,255,255,0.04)",
+          background: "linear-gradient(135deg, rgba(0,200,150,0.05) 0%, rgba(14,18,24,0.95) 25%, rgba(14,18,24,0.9) 75%, rgba(0,200,150,0.04) 100%)",
+          boxShadow: "0 0 40px rgba(0,200,150,0.05), inset 0 1px 0 rgba(255,255,255,0.06), inset 0 0 25px rgba(0,200,150,0.02)",
           position: "relative",
           overflow: "hidden",
         }}>

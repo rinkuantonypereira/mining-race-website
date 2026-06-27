@@ -87,13 +87,22 @@ export function Hero({ onDownload }: HeroProps) {
       t += 0.008;
       ctx.clearRect(0, 0, w, h);
 
-      // Draw map dots
+      // Draw map dots — visible bright dots with glow
       for (const [mx, my] of MAP_DOTS) {
         const x = mx * w;
         const y = my * h;
+        // Glow
+        const dGrad = ctx.createRadialGradient(x, y, 0, x, y, 6);
+        dGrad.addColorStop(0, "rgba(0,200,150,0.25)");
+        dGrad.addColorStop(1, "rgba(0,200,150,0)");
         ctx.beginPath();
-        ctx.arc(x, y, 1.2, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(0,200,150,0.18)";
+        ctx.arc(x, y, 6, 0, Math.PI * 2);
+        ctx.fillStyle = dGrad;
+        ctx.fill();
+        // Core dot
+        ctx.beginPath();
+        ctx.arc(x, y, 2, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(0,200,150,0.5)";
         ctx.fill();
       }
 
@@ -104,8 +113,8 @@ export function Hero({ onDownload }: HeroProps) {
           const dx = (a.mx - b.mx) * w;
           const dy = (a.my - b.my) * h;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < w * 0.4) {
-            const alpha = 0.06 * (1 - dist / (w * 0.4));
+          if (dist < w * 0.5) {
+            const alpha = 0.15 * (1 - dist / (w * 0.5));
             ctx.beginPath();
             ctx.moveTo(a.mx * w, a.my * h);
             // Curved line

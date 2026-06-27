@@ -58,24 +58,22 @@ export function MiningProducts() {
             <div
               key={product.name}
               style={{
-                background: "rgba(14,18,24,0.6)",
-                backdropFilter: "blur(12px)",
-                WebkitBackdropFilter: "blur(12px)",
-                border: "1px solid rgba(0,200,150,0.12)",
+                background: "linear-gradient(145deg, rgba(0,200,150,0.05) 0%, rgba(14,18,24,0.95) 25%, rgba(14,18,24,0.9) 100%)",
+                border: "1px solid rgba(0,200,150,0.18)",
                 borderRadius: "0.875rem",
                 overflow: "hidden",
                 display: "flex",
                 flexDirection: "column",
                 transition: "border-color 0.3s, box-shadow 0.3s",
-                boxShadow: "0 0 20px rgba(0,200,150,0.03), inset 0 1px 0 rgba(255,255,255,0.04)",
+                boxShadow: "0 0 25px rgba(0,200,150,0.04), inset 0 1px 0 rgba(255,255,255,0.06), inset 0 0 20px rgba(0,200,150,0.02)",
               }}
               onMouseEnter={e => {
-                e.currentTarget.style.borderColor = "rgba(0,200,150,0.35)";
-                e.currentTarget.style.boxShadow = "0 0 30px rgba(0,200,150,0.08), inset 0 1px 0 rgba(255,255,255,0.06)";
+                e.currentTarget.style.borderColor = "rgba(0,200,150,0.4)";
+                e.currentTarget.style.boxShadow = "0 0 35px rgba(0,200,150,0.1), inset 0 1px 0 rgba(255,255,255,0.08), inset 0 0 25px rgba(0,200,150,0.04)";
               }}
               onMouseLeave={e => {
-                e.currentTarget.style.borderColor = "rgba(0,200,150,0.12)";
-                e.currentTarget.style.boxShadow = "0 0 20px rgba(0,200,150,0.03), inset 0 1px 0 rgba(255,255,255,0.04)";
+                e.currentTarget.style.borderColor = "rgba(0,200,150,0.18)";
+                e.currentTarget.style.boxShadow = "0 0 25px rgba(0,200,150,0.04), inset 0 1px 0 rgba(255,255,255,0.06), inset 0 0 20px rgba(0,200,150,0.02)";
               }}
             >
               <div style={{ display: "flex", alignItems: "stretch" }}>

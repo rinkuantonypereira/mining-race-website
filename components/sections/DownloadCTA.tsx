@@ -10,11 +10,9 @@ export function DownloadCTA({ onDownload }: DownloadCTAProps) {
           textAlign: "center",
           position: "relative",
           overflow: "hidden",
-          background: "rgba(14,18,24,0.5)",
-          backdropFilter: "blur(16px)",
-          WebkitBackdropFilter: "blur(16px)",
-          border: "1px solid rgba(0,200,150,0.2)",
-          boxShadow: "0 0 60px rgba(0,200,150,0.05), inset 0 1px 0 rgba(255,255,255,0.04)",
+          background: "linear-gradient(135deg, rgba(0,200,150,0.06) 0%, rgba(14,18,24,0.95) 30%, rgba(14,18,24,0.9) 70%, rgba(0,200,150,0.05) 100%)",
+          border: "1px solid rgba(0,200,150,0.25)",
+          boxShadow: "0 0 60px rgba(0,200,150,0.06), inset 0 1px 0 rgba(255,255,255,0.07), inset 0 0 30px rgba(0,200,150,0.03)",
         }}>
           {/* Top glow line */}
           <div style={{

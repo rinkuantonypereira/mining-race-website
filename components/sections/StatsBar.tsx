@@ -109,14 +109,12 @@ export function StatsBar() {
     <div style={{ background: "#06060A", padding: "0 0 2rem" }}>
       <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 2.5rem" }}>
         <div style={{
-          background: "rgba(12,16,22,0.7)",
-          backdropFilter: "blur(16px)",
-          WebkitBackdropFilter: "blur(16px)",
+          background: "linear-gradient(135deg, rgba(0,200,150,0.06) 0%, rgba(12,16,22,0.9) 30%, rgba(12,16,22,0.9) 70%, rgba(0,200,150,0.04) 100%)",
           borderRadius: "1rem",
-          border: "1px solid rgba(0,200,150,0.15)",
+          border: "1px solid rgba(0,200,150,0.2)",
           position: "relative",
           overflow: "hidden",
-          boxShadow: "0 0 40px rgba(0,200,150,0.05), inset 0 1px 0 rgba(255,255,255,0.05)",
+          boxShadow: "0 0 40px rgba(0,200,150,0.06), inset 0 1px 0 rgba(255,255,255,0.07), inset 0 0 30px rgba(0,200,150,0.03)",
         }}>
           {/* Teal top glow */}
           <div style={{
