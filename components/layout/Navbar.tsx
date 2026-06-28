@@ -123,16 +123,28 @@ export function Navbar() {
             </div>
 
             {/* Right actions */}
-            <div className="hidden xl:flex items-center gap-2 ml-auto">
-              <Link href="/calculator" className="flex items-center gap-1.5 px-4 py-1.5 text-sm text-brand-teal border border-brand-teal rounded-full hover:bg-brand-tealDim transition-colors">
-                <Calculator size={15} /> Calculator
+            <div style={{ display: "flex", alignItems: "center", gap: "0.625rem", marginLeft: "auto", flexShrink: 0 }} className="hidden xl:flex">
+              <Link
+                href="/calculator"
+                style={{ display: "inline-flex", alignItems: "center", gap: "0.375rem", padding: "0.4rem 1rem", fontSize: "0.78rem", fontWeight: 500, color: "#00C896", border: "1px solid #00C896", borderRadius: "0.375rem", textDecoration: "none", whiteSpace: "nowrap", transition: "background 0.2s" }}
+                onMouseEnter={e => (e.currentTarget.style.background = "rgba(0,200,150,0.08)")}
+                onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
+              >
+                <Calculator size={14} /> Calculator
               </Link>
-              <Link href="#" className="flex items-center gap-1.5 px-4 py-1.5 text-sm text-brand-teal border border-brand-teal rounded-full hover:bg-brand-tealDim transition-colors">
-                <LayoutDashboard size={15} /> Dashboard
+              <Link
+                href="#"
+                style={{ display: "inline-flex", alignItems: "center", gap: "0.375rem", padding: "0.4rem 1rem", fontSize: "0.78rem", fontWeight: 500, color: "#00C896", border: "1px solid #00C896", borderRadius: "0.375rem", textDecoration: "none", whiteSpace: "nowrap", transition: "background 0.2s" }}
+                onMouseEnter={e => (e.currentTarget.style.background = "rgba(0,200,150,0.08)")}
+                onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
+              >
+                <LayoutDashboard size={14} /> Dashboard
               </Link>
               <button
                 onClick={() => setModalOpen(true)}
-                className="ml-1 px-5 py-1.5 text-sm font-medium text-mr-black bg-brand-teal rounded-full hover:opacity-90 transition-opacity"
+                style={{ padding: "0.4rem 1.25rem", fontSize: "0.78rem", fontWeight: 600, color: "#06060A", background: "#00C896", border: "none", borderRadius: "0.375rem", cursor: "pointer", whiteSpace: "nowrap", transition: "opacity 0.2s" }}
+                onMouseEnter={e => (e.currentTarget.style.opacity = "0.88")}
+                onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
               >
                 Login
               </button>
