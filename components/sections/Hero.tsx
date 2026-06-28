@@ -10,9 +10,10 @@ export function Hero({ onDownload }: HeroProps) {
       {/* World map — SVG dots + animated canvas hubs */}
       <WorldMapCanvas />
 
-      {/* Dark gradient overlays for readability */}
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(6,6,10,0.92) 20%, rgba(6,6,10,0.5) 45%, rgba(6,6,10,0.1) 75%)", zIndex: 2 }} />
-      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "25%", background: "linear-gradient(to top, #06060A, transparent)", zIndex: 2 }} />
+      {/* Dark gradient overlays for readability — lighter so map shows through */}
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(6,6,10,0.88) 15%, rgba(6,6,10,0.35) 40%, rgba(6,6,10,0.05) 70%)", zIndex: 2 }} />
+      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "20%", background: "linear-gradient(to top, #06060A, transparent)", zIndex: 2 }} />
+      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "10%", background: "linear-gradient(to bottom, rgba(6,6,10,0.5), transparent)", zIndex: 2 }} />
 
       {/* Teal ambient glow behind mascot */}
       <div style={{ position: "absolute", right: "5%", top: "50%", transform: "translateY(-50%)", width: "45vw", height: "90vh", background: "radial-gradient(ellipse at center, rgba(0,200,150,0.08) 0%, transparent 65%)", pointerEvents: "none", zIndex: 1 }} />
@@ -36,8 +37,9 @@ export function Hero({ onDownload }: HeroProps) {
             height: "92vh",
             width: "auto",
             marginRight: "-2rem",
-            maskImage: "linear-gradient(to right, transparent 0%, black 15%, black 100%), linear-gradient(to bottom, transparent 0%, black 8%, black 90%, transparent 100%)",
-            WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 15%, black 100%), linear-gradient(to bottom, transparent 0%, black 8%, black 90%, transparent 100%)",
+            mixBlendMode: "lighten",
+            maskImage: "linear-gradient(to right, transparent 0%, black 20%, black 100%), linear-gradient(to bottom, transparent 0%, black 10%, black 88%, transparent 100%)",
+            WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 20%, black 100%), linear-gradient(to bottom, transparent 0%, black 10%, black 88%, transparent 100%)",
             maskComposite: "intersect",
             WebkitMaskComposite: "source-in",
           }}
