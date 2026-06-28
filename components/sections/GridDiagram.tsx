@@ -46,7 +46,7 @@ export function GridDiagram() {
                     borderRadius: "0.625rem",
                     backdropFilter: "blur(8px)",
                   }}>
-                    <Image src={item.icon} alt={item.name} width={28} height={28} style={{ objectFit: "contain" }} />
+                    <Image src={item.icon} alt={item.name} width={28} height={28} unoptimized style={{ objectFit: "contain" }} />
                     <span style={{ fontSize: "0.875rem", color: "#94A3B8", fontWeight: 500 }}>{item.name}</span>
                   </div>
                 ))}
@@ -101,7 +101,7 @@ export function GridDiagram() {
                     backdropFilter: "blur(8px)",
                   }}>
                     <span style={{ fontSize: "0.875rem", color: "#94A3B8", fontWeight: 500 }}>{item.name}</span>
-                    <Image src={item.icon} alt={item.name} width={28} height={28} style={{ objectFit: "contain" }} />
+                    <Image src={item.icon} alt={item.name} width={28} height={28} unoptimized style={{ objectFit: "contain" }} />
                   </div>
                 ))}
               </div>

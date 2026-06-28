@@ -96,6 +96,7 @@ export default function PowerNodesPage() {
                   alt="Power NODE"
                   width={320}
                   height={320}
+                  unoptimized
                   style={{ objectFit: "contain" }}
                   priority
                 />

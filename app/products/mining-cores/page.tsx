@@ -73,6 +73,7 @@ export default function MiningCoresPage() {
                   alt="Mining CORE"
                   width={320}
                   height={320}
+                  unoptimized
                   style={{ objectFit: "contain" }}
                   priority
                 />

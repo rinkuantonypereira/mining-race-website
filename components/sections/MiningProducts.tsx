@@ -101,6 +101,7 @@ export function MiningProducts() {
                     alt={product.name}
                     width={160}
                     height={160}
+                    unoptimized
                     style={{ objectFit: "contain", width: "100%", height: "auto", maxHeight: "150px", position: "relative", zIndex: 1 }}
                   />
                 </div>

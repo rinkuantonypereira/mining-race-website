@@ -194,6 +194,7 @@ export default function ProductsPage() {
                       alt={product.name}
                       width={180}
                       height={180}
+                      unoptimized
                       style={{ objectFit: "contain", width: "100%", height: "auto", maxHeight: "160px" }}
                     />
                   </div>

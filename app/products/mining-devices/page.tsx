@@ -93,6 +93,7 @@ export default function MiningDevicesPage() {
                   alt="Mining DEVICE"
                   width={320}
                   height={320}
+                  unoptimized
                   style={{ objectFit: "contain" }}
                   priority
                 />

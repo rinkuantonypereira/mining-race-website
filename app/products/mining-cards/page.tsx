@@ -93,6 +93,7 @@ export default function MiningCardsPage() {
                   alt="Mining CARD"
                   width={320}
                   height={320}
+                  unoptimized
                   style={{ objectFit: "contain" }}
                   priority
                 />

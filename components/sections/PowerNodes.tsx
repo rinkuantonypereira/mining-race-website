@@ -68,7 +68,7 @@ export function PowerNodes() {
                       background: "radial-gradient(circle, rgba(0,200,150,0.08) 0%, transparent 70%)",
                       borderRadius: "50%",
                     }} />
-                    <Image src={node.image} alt={node.name} width={90} height={90} style={{ objectFit: "contain", position: "relative", zIndex: 1 }} />
+                    <Image src={node.image} alt={node.name} width={90} height={90} unoptimized style={{ objectFit: "contain", position: "relative", zIndex: 1 }} />
                   </div>
                   <div>
                     <h3 style={{ fontSize: "1rem", fontWeight: 700, color: "#F0F4F8", lineHeight: 1.2 }}>
