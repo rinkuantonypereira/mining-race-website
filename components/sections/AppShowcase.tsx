@@ -55,21 +55,22 @@ export function AppShowcase({ onDownload }: AppShowcaseProps) {
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "center" }}>
 
           {/* Left — phones */}
-          <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "center", gap: "0.875rem" }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "1rem" }}>
             {SCREENS.map((s, i) => (
               <div key={s.src} style={{
                 borderRadius: "1.25rem",
                 overflow: "hidden",
                 border: i === 1 ? "1px solid rgba(0,200,150,0.2)" : "1px solid rgba(255,255,255,0.08)",
                 flexShrink: 0,
-                width: i === 1 ? "165px" : "140px",
-                transform: i === 1 ? "translateY(-1.5rem) scale(1.05)" : "none",
+                width: i === 1 ? "170px" : "150px",
+                height: i === 1 ? "360px" : "320px",
+                transform: i === 1 ? "scale(1.05)" : "none",
                 zIndex: i === 1 ? 10 : 5,
                 boxShadow: i === 1
                   ? "0 0 40px rgba(0,200,150,0.1), 0 20px 60px rgba(0,0,0,0.5)"
                   : "0 8px 32px rgba(0,0,0,0.5)",
               }}>
-                <Image src={s.src} alt={s.alt} width={200} height={400} style={{ width: "100%", height: "auto", display: "block" }} />
+                <Image src={s.src} alt={s.alt} width={200} height={420} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }} />
               </div>
             ))}
           </div>
