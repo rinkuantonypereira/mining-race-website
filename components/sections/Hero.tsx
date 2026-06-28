@@ -1,138 +1,21 @@
 "use client";
-import { useEffect, useRef } from "react";
 import Image from "next/image";
+import { WorldMapCanvas } from "@/components/sections/WorldMap";
 
 interface HeroProps { onDownload: () => void; }
 
-import { MAP_DOTS } from "@/lib/worldmap";
-
 export function Hero({ onDownload }: HeroProps) {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    let w = 0, h = 0;
-    const resize = () => {
-      w = canvas.width = window.innerWidth;
-      h = canvas.height = window.innerHeight;
-    };
-    resize();
-    window.addEventListener("resize", resize);
-
-    const hubs = [
-      { mx: 0.22, my: 0.35 }, // New York
-      { mx: 0.14, my: 0.38 }, // Los Angeles
-      { mx: 0.18, my: 0.32 }, // Chicago
-      { mx: 0.50, my: 0.28 }, // London
-      { mx: 0.53, my: 0.30 }, // Frankfurt
-      { mx: 0.58, my: 0.34 }, // Dubai
-      { mx: 0.70, my: 0.28 }, // Beijing
-      { mx: 0.75, my: 0.32 }, // Tokyo
-      { mx: 0.72, my: 0.42 }, // Singapore
-      { mx: 0.82, my: 0.62 }, // Sydney
-      { mx: 0.42, my: 0.50 }, // Lagos
-      { mx: 0.27, my: 0.58 }, // São Paulo
-      { mx: 0.65, my: 0.38 }, // Mumbai
-    ].map(h => ({ ...h, pulse: Math.random() * Math.PI * 2 }));
-
-    let raf: number;
-    let t = 0;
-
-    const draw = () => {
-      t += 0.008;
-      ctx.clearRect(0, 0, w, h);
-
-      // Draw map dots — small crisp dots with subtle glow
-      for (const [mx, my] of MAP_DOTS) {
-        const x = mx * w;
-        const y = my * h;
-        // Soft glow
-        const dGrad = ctx.createRadialGradient(x, y, 0, x, y, 4);
-        dGrad.addColorStop(0, "rgba(0,200,150,0.3)");
-        dGrad.addColorStop(1, "rgba(0,200,150,0)");
-        ctx.beginPath();
-        ctx.arc(x, y, 4, 0, Math.PI * 2);
-        ctx.fillStyle = dGrad;
-        ctx.fill();
-        // Crisp core
-        ctx.beginPath();
-        ctx.arc(x, y, 1.3, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(0,220,170,0.7)";
-        ctx.fill();
-      }
-
-      // Draw connection lines between hubs
-      for (let i = 0; i < hubs.length; i++) {
-        for (let j = i + 1; j < hubs.length; j++) {
-          const a = hubs[i], b = hubs[j];
-          const dx = (a.mx - b.mx) * w;
-          const dy = (a.my - b.my) * h;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < w * 0.5) {
-            const alpha = 0.15 * (1 - dist / (w * 0.5));
-            ctx.beginPath();
-            ctx.moveTo(a.mx * w, a.my * h);
-            // Curved line
-            const cpx = ((a.mx + b.mx) / 2) * w;
-            const cpy = ((a.my + b.my) / 2) * h - dist * 0.15;
-            ctx.quadraticCurveTo(cpx, cpy, b.mx * w, b.my * h);
-            ctx.strokeStyle = `rgba(0,200,150,${alpha})`;
-            ctx.lineWidth = 0.8;
-            ctx.stroke();
-          }
-        }
-      }
-
-      // Draw glowing hubs
-      for (const hub of hubs) {
-        const x = hub.mx * w;
-        const y = hub.my * h;
-        const pulse = 1 + Math.sin(t * 2 + hub.pulse) * 0.4;
-        const r = 4 * pulse;
-
-        // Outer glow
-        const grad = ctx.createRadialGradient(x, y, 0, x, y, r * 8);
-        grad.addColorStop(0, "rgba(0,200,150,0.35)");
-        grad.addColorStop(0.5, "rgba(0,200,150,0.08)");
-        grad.addColorStop(1, "rgba(0,200,150,0)");
-        ctx.beginPath();
-        ctx.arc(x, y, r * 8, 0, Math.PI * 2);
-        ctx.fillStyle = grad;
-        ctx.fill();
-
-        // Core
-        ctx.beginPath();
-        ctx.arc(x, y, r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(0,220,165,0.9)`;
-        ctx.fill();
-
-        // Bright center
-        ctx.beginPath();
-        ctx.arc(x, y, r * 0.4, 0, Math.PI * 2);
-        ctx.fillStyle = "#FFFFFF";
-        ctx.fill();
-      }
-
-      raf = requestAnimationFrame(draw);
-    };
-    draw();
-    return () => { cancelAnimationFrame(raf); window.removeEventListener("resize", resize); };
-  }, []);
-
   return (
     <section style={{ position: "relative", minHeight: "100vh", display: "flex", alignItems: "center", overflow: "hidden", background: "#06060A" }}>
-      <canvas ref={canvasRef} style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }} aria-hidden="true" />
+      {/* World map — SVG dots + animated canvas hubs */}
+      <WorldMapCanvas />
 
       {/* Dark gradient overlays for readability */}
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(6,6,10,0.95) 25%, rgba(6,6,10,0.65) 50%, rgba(6,6,10,0.15) 80%)" }} />
-      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "30%", background: "linear-gradient(to top, #06060A, transparent)" }} />
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(6,6,10,0.92) 20%, rgba(6,6,10,0.5) 45%, rgba(6,6,10,0.1) 75%)", zIndex: 2 }} />
+      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "25%", background: "linear-gradient(to top, #06060A, transparent)", zIndex: 2 }} />
 
       {/* Teal ambient glow behind mascot */}
-      <div style={{ position: "absolute", right: "5%", top: "50%", transform: "translateY(-50%)", width: "45vw", height: "90vh", background: "radial-gradient(ellipse at center, rgba(0,200,150,0.08) 0%, transparent 65%)", pointerEvents: "none" }} />
+      <div style={{ position: "absolute", right: "5%", top: "50%", transform: "translateY(-50%)", width: "45vw", height: "90vh", background: "radial-gradient(ellipse at center, rgba(0,200,150,0.08) 0%, transparent 65%)", pointerEvents: "none", zIndex: 1 }} />
 
       {/* Teal top accent line */}
       <div style={{ position: "absolute", top: "64px", left: 0, right: 0, height: "2px", background: "linear-gradient(90deg, #00C896, rgba(0,200,150,0.3) 30%, transparent 60%)", zIndex: 20 }} />
@@ -199,18 +82,14 @@ export function Hero({ onDownload }: HeroProps) {
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: "0.875rem", color: "#475569", fontSize: "0.8rem" }}>
               <span>Available on</span>
-              {/* Apple */}
               <svg width="18" height="18" viewBox="0 0 24 24" fill="#94A3B8"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-              {/* Play Store */}
               <svg width="18" height="18" viewBox="0 0 24 24" fill="#94A3B8"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-1.4l2.834 1.64a1 1 0 010 1.726l-2.834 1.64-2.532-2.533 2.532-2.473zM5.864 3.458L16.8 9.79l-2.302 2.302-8.634-8.634z"/></svg>
-              {/* Desktop */}
               <svg width="20" height="18" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" /></svg>
             </div>
           </div>
 
           {/* Right — empty spacer for mascot (absolute positioned above) */}
-          <div style={{ minHeight: "75vh" }}>
-          </div>
+          <div style={{ minHeight: "75vh" }} />
         </div>
       </div>
     </section>
