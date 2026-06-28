@@ -7,12 +7,11 @@ interface HeroProps { onDownload: () => void; }
 export function Hero({ onDownload }: HeroProps) {
   return (
     <section style={{ position: "relative", minHeight: "100vh", display: "flex", alignItems: "center", overflow: "hidden", background: "#06060A" }}>
-      {/* World map — SVG dots + animated canvas hubs */}
+      {/* World map — stays inside hero only */}
       <WorldMapCanvas />
 
-      {/* Dark gradient overlays for readability — lighter so map shows through */}
+      {/* Dark gradient overlays for text readability */}
       <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(6,6,10,0.88) 15%, rgba(6,6,10,0.35) 40%, rgba(6,6,10,0.05) 70%)", zIndex: 2 }} />
-      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "20%", background: "linear-gradient(to top, #06060A, transparent)", zIndex: 2 }} />
       <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "10%", background: "linear-gradient(to bottom, rgba(6,6,10,0.5), transparent)", zIndex: 2 }} />
 
       {/* Teal ambient glow behind mascot */}
@@ -41,7 +40,7 @@ export function Hero({ onDownload }: HeroProps) {
           }}
           priority
         />
-        <p style={{ position: "absolute", bottom: "15%", right: "8%", color: "#3D4F63", fontSize: "0.85rem", lineHeight: 1.7, textAlign: "right" }}>
+        <p style={{ position: "absolute", bottom: "18%", right: "45%", color: "#00C896", fontSize: "0.9rem", fontWeight: 500, lineHeight: 1.8, textAlign: "right", opacity: 0.6, textShadow: "0 0 30px rgba(0,200,150,0.3)" }}>
           The Fastest<br />Driven Bitcoin<br />Movement
         </p>
       </div>

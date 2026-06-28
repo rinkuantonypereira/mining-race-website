@@ -13,14 +13,16 @@ const SUPPLY = [
 
 export function GridDiagram() {
   return (
-    <section style={{ padding: "3rem 0 5rem", background: "#06060A" }}>
+    <section style={{ padding: "3rem 0 5rem", background: "transparent" }}>
       <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 2.5rem" }}>
         <div style={{
-          border: "1px solid rgba(0,200,150,0.2)",
+          border: "1px solid rgba(255,255,255,0.1)",
           borderRadius: "1rem",
           padding: "3rem 2.5rem",
-          background: "linear-gradient(135deg, rgba(0,200,150,0.05) 0%, rgba(14,18,24,0.95) 25%, rgba(14,18,24,0.9) 75%, rgba(0,200,150,0.04) 100%)",
-          boxShadow: "0 0 40px rgba(0,200,150,0.05), inset 0 1px 0 rgba(255,255,255,0.06), inset 0 0 25px rgba(0,200,150,0.02)",
+          background: "rgba(14,20,30,0.3)",
+          backdropFilter: "blur(24px)",
+          WebkitBackdropFilter: "blur(24px)",
+          boxShadow: "inset 0 1px 0 rgba(255,255,255,0.22), inset 0 -1px 0 rgba(255,255,255,0.04)",
           position: "relative",
           overflow: "hidden",
         }}>
@@ -46,7 +48,7 @@ export function GridDiagram() {
                     borderRadius: "0.625rem",
                     backdropFilter: "blur(8px)",
                   }}>
-                    <Image src={item.icon} alt={item.name} width={28} height={28} unoptimized style={{ objectFit: "contain" }} />
+                    <Image src={item.icon} alt={item.name} width={40} height={40} unoptimized style={{ objectFit: "contain" }} />
                     <span style={{ fontSize: "0.875rem", color: "#94A3B8", fontWeight: 500 }}>{item.name}</span>
                   </div>
                 ))}
@@ -68,10 +70,12 @@ export function GridDiagram() {
                 background: "radial-gradient(circle, rgba(0,200,150,0.08) 0%, rgba(0,200,150,0.02) 70%)",
                 boxShadow: "0 0 50px rgba(0,200,150,0.12), 0 0 100px rgba(0,200,150,0.05), inset 0 0 30px rgba(0,200,150,0.05)",
                 position: "relative",
+                animation: "breathe 3s ease-in-out infinite",
               }}>
-                {/* Animated ring glow */}
+                <style>{`@keyframes breathe { 0%,100% { box-shadow: 0 0 30px rgba(0,200,150,0.1), 0 0 60px rgba(0,200,150,0.05), inset 0 0 20px rgba(0,200,150,0.04); transform: scale(1); } 50% { box-shadow: 0 0 50px rgba(0,200,150,0.2), 0 0 100px rgba(0,200,150,0.1), inset 0 0 35px rgba(0,200,150,0.08); transform: scale(1.04); } }`}</style>
+                {/* Outer ring */}
                 <div style={{
-                  position: "absolute", inset: "-4px", borderRadius: "50%",
+                  position: "absolute", inset: "-6px", borderRadius: "50%",
                   border: "1px solid rgba(0,200,150,0.15)",
                 }} />
                 <div>
@@ -101,7 +105,7 @@ export function GridDiagram() {
                     backdropFilter: "blur(8px)",
                   }}>
                     <span style={{ fontSize: "0.875rem", color: "#94A3B8", fontWeight: 500 }}>{item.name}</span>
-                    <Image src={item.icon} alt={item.name} width={28} height={28} unoptimized style={{ objectFit: "contain" }} />
+                    <Image src={item.icon} alt={item.name} width={40} height={40} unoptimized style={{ objectFit: "contain" }} />
                   </div>
                 ))}
               </div>

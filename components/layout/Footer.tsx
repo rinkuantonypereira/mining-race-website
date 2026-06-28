@@ -96,10 +96,9 @@ export function Footer() {
         <div style={{
           marginBottom: "2rem",
           padding: "1.25rem 1.5rem",
-          background: "rgba(0,200,150,0.03)",
-          border: "1px solid rgba(0,200,150,0.1)",
+          background: "rgba(255,255,255,0.02)",
+          border: "1px solid rgba(255,255,255,0.06)",
           borderRadius: "0.625rem",
-          borderLeft: "3px solid rgba(0,200,150,0.3)",
         }}>
           <p style={{ fontSize: "0.72rem", color: "#475569", lineHeight: 1.7 }}>
             <strong style={{ color: "#6B7A8D", fontWeight: 600 }}>Risk Disclaimer:</strong>{" "}

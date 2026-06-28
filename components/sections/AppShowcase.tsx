@@ -50,7 +50,7 @@ interface AppShowcaseProps { onDownload?: () => void; }
 
 export function AppShowcase({ onDownload }: AppShowcaseProps) {
   return (
-    <section style={{ padding: "5rem 0", background: "#0A0A0F", overflow: "hidden" }}>
+    <section style={{ padding: "5rem 0", background: "transparent", overflow: "hidden" }}>
       <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 2.5rem" }}>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "center" }}>
 

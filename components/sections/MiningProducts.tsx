@@ -27,7 +27,7 @@ const PRODUCTS = [
 
 export function MiningProducts() {
   return (
-    <section style={{ padding: "4rem 0 5rem", background: "#06060A" }}>
+    <section style={{ padding: "4rem 0 5rem", background: "transparent" }}>
       <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 2.5rem" }}>
 
         {/* Header */}
@@ -38,16 +38,16 @@ export function MiningProducts() {
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "1.5rem" }}>
             <div style={{
               flex: 1, maxWidth: "220px", height: "1px", position: "relative",
-              background: "linear-gradient(to right, transparent, rgba(0,200,150,0.3))",
-              boxShadow: "0 0 8px rgba(0,200,150,0.15)",
+              background: "linear-gradient(to right, transparent, #00C896)",
+              boxShadow: "0 0 12px rgba(0,200,150,0.4)",
             }} />
             <h2 style={{ fontSize: "clamp(1.75rem, 4vw, 2.5rem)", fontWeight: 700, color: "#F0F4F8", whiteSpace: "nowrap" }}>
               Direct Mining Products
             </h2>
             <div style={{
               flex: 1, maxWidth: "220px", height: "1px", position: "relative",
-              background: "linear-gradient(to left, transparent, rgba(0,200,150,0.3))",
-              boxShadow: "0 0 8px rgba(0,200,150,0.15)",
+              background: "linear-gradient(to left, transparent, #00C896)",
+              boxShadow: "0 0 12px rgba(0,200,150,0.4)",
             }} />
           </div>
         </div>
@@ -58,22 +58,24 @@ export function MiningProducts() {
             <div
               key={product.name}
               style={{
-                background: "linear-gradient(145deg, rgba(0,200,150,0.05) 0%, rgba(14,18,24,0.95) 25%, rgba(14,18,24,0.9) 100%)",
-                border: "1px solid rgba(0,200,150,0.18)",
-                borderRadius: "0.875rem",
+                background: "rgba(14,20,30,0.3)",
+                backdropFilter: "blur(24px)",
+                WebkitBackdropFilter: "blur(24px)",
+                border: "1px solid rgba(255,255,255,0.1)",
+                borderRadius: "1rem",
                 overflow: "hidden",
                 display: "flex",
                 flexDirection: "column",
                 transition: "border-color 0.3s, box-shadow 0.3s",
-                boxShadow: "0 0 25px rgba(0,200,150,0.04), inset 0 1px 0 rgba(255,255,255,0.06), inset 0 0 20px rgba(0,200,150,0.02)",
+                boxShadow: "inset 0 1px 0 rgba(255,255,255,0.22), inset 0 -1px 0 rgba(255,255,255,0.04)",
               }}
               onMouseEnter={e => {
-                e.currentTarget.style.borderColor = "rgba(0,200,150,0.4)";
-                e.currentTarget.style.boxShadow = "0 0 35px rgba(0,200,150,0.1), inset 0 1px 0 rgba(255,255,255,0.08), inset 0 0 25px rgba(0,200,150,0.04)";
+                e.currentTarget.style.borderColor = "rgba(255,255,255,0.18)";
+                e.currentTarget.style.boxShadow = "inset 0 1px 0 rgba(255,255,255,0.28), inset 0 -1px 0 rgba(255,255,255,0.06)";
               }}
               onMouseLeave={e => {
-                e.currentTarget.style.borderColor = "rgba(0,200,150,0.18)";
-                e.currentTarget.style.boxShadow = "0 0 25px rgba(0,200,150,0.04), inset 0 1px 0 rgba(255,255,255,0.06), inset 0 0 20px rgba(0,200,150,0.02)";
+                e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
+                e.currentTarget.style.boxShadow = "inset 0 1px 0 rgba(255,255,255,0.22), inset 0 -1px 0 rgba(255,255,255,0.04)";
               }}
             >
               <div style={{ display: "flex", alignItems: "stretch" }}>
@@ -82,7 +84,8 @@ export function MiningProducts() {
                 <div style={{
                   width: "38%",
                   flexShrink: 0,
-                  background: "rgba(0,0,0,0.3)",
+                  background: "rgba(0,0,0,0.35)",
+                  borderRight: "1px solid rgba(255,255,255,0.06)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",

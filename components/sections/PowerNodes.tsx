@@ -9,14 +9,16 @@ const INDICATORS = ["STATUS", "GRID", "NETWORK"];
 
 export function PowerNodes() {
   return (
-    <section style={{ padding: "3rem 0 5rem", background: "#06060A" }}>
+    <section style={{ padding: "3rem 0 5rem", background: "transparent" }}>
       <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 2.5rem" }}>
         <div style={{
-          border: "1px solid rgba(0,200,150,0.25)",
+          border: "1px solid rgba(255,255,255,0.1)",
           borderRadius: "1rem",
           overflow: "hidden",
-          background: "linear-gradient(135deg, rgba(0,200,150,0.06) 0%, rgba(14,18,24,0.95) 20%, rgba(14,18,24,0.9) 80%, rgba(0,200,150,0.04) 100%)",
-          boxShadow: "0 0 50px rgba(0,200,150,0.06), inset 0 1px 0 rgba(255,255,255,0.07), inset 0 0 30px rgba(0,200,150,0.03)",
+          background: "rgba(14,20,30,0.3)",
+          backdropFilter: "blur(24px)",
+          WebkitBackdropFilter: "blur(24px)",
+          boxShadow: "inset 0 1px 0 rgba(255,255,255,0.22), inset 0 -1px 0 rgba(255,255,255,0.04)",
           position: "relative",
         }}>
           {/* Teal top glow line */}

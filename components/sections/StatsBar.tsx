@@ -84,7 +84,7 @@ function StatItem({ stat }: { stat: typeof STATS[0] }) {
         <p style={{
           fontSize: "clamp(1.25rem, 2vw, 1.625rem)",
           fontWeight: 700,
-          color: "#00C896",
+          color: "#F0F4F8",
           letterSpacing: "-0.02em",
           lineHeight: 1.2,
         }}>
@@ -106,25 +106,32 @@ function StatItem({ stat }: { stat: typeof STATS[0] }) {
 
 export function StatsBar() {
   return (
-    <div style={{ background: "#06060A", padding: "0 0 2rem" }}>
+    <div style={{ background: "transparent", padding: "0 0 2rem" }}>
       <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 2.5rem" }}>
         <div style={{
-          background: "linear-gradient(135deg, rgba(0,200,150,0.06) 0%, rgba(12,16,22,0.9) 30%, rgba(12,16,22,0.9) 70%, rgba(0,200,150,0.04) 100%)",
+          background: "rgba(14,20,30,0.3)",
+          backdropFilter: "blur(24px)",
+          WebkitBackdropFilter: "blur(24px)",
           borderRadius: "1rem",
-          border: "1px solid rgba(0,200,150,0.2)",
+          border: "1px solid rgba(255,255,255,0.1)",
           position: "relative",
           overflow: "hidden",
-          boxShadow: "0 0 40px rgba(0,200,150,0.06), inset 0 1px 0 rgba(255,255,255,0.07), inset 0 0 30px rgba(0,200,150,0.03)",
+          boxShadow: "inset 0 1px 0 rgba(255,255,255,0.22), inset 0 -1px 0 rgba(255,255,255,0.04)",
         }}>
-          {/* Teal top glow */}
+          {/* Bright teal top edge glow */}
           <div style={{
-            position: "absolute", top: 0, left: "10%", right: "10%", height: "1px",
-            background: "linear-gradient(90deg, transparent, rgba(0,200,150,0.5), transparent)",
+            position: "absolute", top: 0, left: "5%", right: "5%", height: "1px",
+            background: "linear-gradient(90deg, transparent, rgba(0,200,150,0.7), transparent)",
           }} />
           <div style={{
-            position: "absolute", top: 0, left: "20%", right: "20%", height: "40px",
-            background: "radial-gradient(ellipse at top, rgba(0,200,150,0.08), transparent)",
+            position: "absolute", top: 0, left: "15%", right: "15%", height: "60px",
+            background: "radial-gradient(ellipse at top, rgba(0,200,150,0.12), transparent)",
             pointerEvents: "none",
+          }} />
+          {/* Bottom edge subtle highlight */}
+          <div style={{
+            position: "absolute", bottom: 0, left: "10%", right: "10%", height: "1px",
+            background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent)",
           }} />
           <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)" }}>
             {STATS.map((stat, i) => (

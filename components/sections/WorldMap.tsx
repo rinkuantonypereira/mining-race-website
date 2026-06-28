@@ -133,11 +133,11 @@ export function WorldMapCanvas() {
   }, []);
 
   return (
-    <div style={{ position: "absolute", inset: 0, overflow: "hidden" }}>
+    <div style={{ position: "absolute", inset: 0 }}>
       {/* SVG world map — real geographic outlines with dot pattern fill + glow stroke */}
       <svg
         viewBox="0 0 1000 500"
-        style={{ position: "absolute", left: 0, right: 0, top: "3%", width: "100%", height: "100%" }}
+        style={{ position: "absolute", left: 0, right: 0, top: "5%", width: "100%", height: "95%" }}
         preserveAspectRatio="xMidYMin meet"
         aria-hidden="true"
       >

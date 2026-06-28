@@ -1,0 +1,15 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "dev",
+      "runtimeExecutable": "D:\\Node\\npx.cmd",
+      "runtimeArgs": ["next", "dev"],
+      "port": 3000,
+      "autoPort": true,
+      "env": {
+        "PATH": "D:\\Node;C:\\Users\\rinku\\AppData\\Roaming\\npm;${env:PATH}"
+      }
+    }
+  ]
+}

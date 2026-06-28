@@ -48,8 +48,8 @@ export function Navbar() {
           ? "bg-mr-black/90 backdrop-blur-md border-b border-mr-border"
           : "bg-transparent"
       )}>
-        <nav className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center h-16 gap-6">
+        <nav style={{ maxWidth: "1500px", margin: "0 auto", padding: "0 2rem", position: "relative" }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "64px", gap: "1.5rem" }}>
 
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 flex-shrink-0">
@@ -84,12 +84,19 @@ export function Navbar() {
                   Mining Solutions <ChevronDown size={13} className={cn("transition-transform", productsOpen && "rotate-180")} />
                 </button>
                 {productsOpen && (
-                  <div className="absolute top-full left-0 mt-1 w-52 bg-mr-card border border-mr-border rounded-xl p-2 shadow-xl">
+                  <div style={{
+                    position: "absolute", top: "100%", left: 0, marginTop: "0.5rem", width: "13rem",
+                    background: "rgba(14,20,30,0.9)", backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)",
+                    border: "1px solid rgba(255,255,255,0.1)", borderRadius: "0.75rem", padding: "0.5rem",
+                    boxShadow: "0 12px 40px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.08)",
+                  }}>
                     {PRODUCTS_NAV.map((item) => (
                       <Link
                         key={item.href}
                         href={item.href}
-                        className="block px-3 py-2 text-sm text-mr-gray hover:text-mr-white hover:bg-mr-cardHover rounded-lg transition-colors"
+                        style={{ display: "block", padding: "0.5rem 0.875rem", fontSize: "0.82rem", color: "#94A3B8", textDecoration: "none", borderRadius: "0.5rem", transition: "all 0.15s" }}
+                        onMouseEnter={e => { e.currentTarget.style.color = "#F0F4F8"; e.currentTarget.style.background = "rgba(255,255,255,0.06)"; }}
+                        onMouseLeave={e => { e.currentTarget.style.color = "#94A3B8"; e.currentTarget.style.background = "transparent"; }}
                         onClick={() => setProductsOpen(false)}
                       >
                         {item.label}
@@ -123,7 +130,7 @@ export function Navbar() {
             </div>
 
             {/* Right actions */}
-            <div style={{ display: "flex", alignItems: "center", gap: "0.625rem", marginLeft: "auto", flexShrink: 0 }} className="hidden xl:flex">
+            <div style={{ position: "absolute", right: "2rem", top: "50%", transform: "translateY(-50%)", display: "flex", alignItems: "center", gap: "0.625rem" }} className="hidden xl:flex">
               <Link
                 href="/calculator"
                 style={{ display: "inline-flex", alignItems: "center", gap: "0.375rem", padding: "0.4rem 1rem", fontSize: "0.78rem", fontWeight: 500, color: "#00C896", border: "1px solid #00C896", borderRadius: "0.375rem", textDecoration: "none", whiteSpace: "nowrap", transition: "background 0.2s" }}
