@@ -59,13 +59,15 @@ export function Navbar() {
             </Link>
 
             {/* Desktop nav */}
-            <div className="hidden xl:flex items-center gap-1 flex-1">
+            <div className="hidden xl:flex items-center gap-0 flex-1">
 
               {NAV_BEFORE_PRODUCTS.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="px-3 py-2 text-sm text-mr-gray hover:text-mr-white transition-colors rounded-lg"
+                  style={{ padding: "0.375rem 0.875rem", fontSize: "0.8rem", color: "#94A3B8", textDecoration: "none", whiteSpace: "nowrap", borderRight: "1px solid rgba(255,255,255,0.06)", transition: "color 0.2s" }}
+                  onMouseEnter={e => (e.currentTarget.style.color = "#F0F4F8")}
+                  onMouseLeave={e => (e.currentTarget.style.color = "#94A3B8")}
                 >
                   {link.label}
                 </Link>
@@ -75,9 +77,11 @@ export function Navbar() {
               <div className="relative" onMouseLeave={() => setProductsOpen(false)}>
                 <button
                   onMouseEnter={() => setProductsOpen(true)}
-                  className="flex items-center gap-1 px-3 py-2 text-sm text-mr-gray hover:text-mr-white transition-colors rounded-lg"
+                  style={{ display: "flex", alignItems: "center", gap: "0.25rem", padding: "0.375rem 0.875rem", fontSize: "0.8rem", color: "#94A3B8", background: "none", border: "none", borderRight: "1px solid rgba(255,255,255,0.06)", cursor: "pointer", whiteSpace: "nowrap", transition: "color 0.2s" }}
+                  onMouseOver={e => (e.currentTarget.style.color = "#F0F4F8")}
+                  onMouseOut={e => (e.currentTarget.style.color = "#94A3B8")}
                 >
-                  Mining Solutions <ChevronDown size={14} className={cn("transition-transform", productsOpen && "rotate-180")} />
+                  Mining Solutions <ChevronDown size={13} className={cn("transition-transform", productsOpen && "rotate-180")} />
                 </button>
                 {productsOpen && (
                   <div className="absolute top-full left-0 mt-1 w-52 bg-mr-card border border-mr-border rounded-xl p-2 shadow-xl">
@@ -96,15 +100,22 @@ export function Navbar() {
               </div>
 
               {/* Power NODES standalone link */}
-              <Link href="/products/power-nodes" className="px-3 py-2 text-sm text-mr-gray hover:text-mr-white transition-colors rounded-lg">
+              <Link
+                href="/products/power-nodes"
+                style={{ padding: "0.375rem 0.875rem", fontSize: "0.8rem", color: "#94A3B8", textDecoration: "none", whiteSpace: "nowrap", borderRight: "1px solid rgba(255,255,255,0.06)", transition: "color 0.2s" }}
+                onMouseEnter={e => (e.currentTarget.style.color = "#F0F4F8")}
+                onMouseLeave={e => (e.currentTarget.style.color = "#94A3B8")}
+              >
                 Power NODES
               </Link>
 
-              {NAV_AFTER_NODES.map((link) => (
+              {NAV_AFTER_NODES.map((link, i) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="px-3 py-2 text-sm text-mr-gray hover:text-mr-white transition-colors rounded-lg"
+                  style={{ padding: "0.375rem 0.875rem", fontSize: "0.8rem", color: "#94A3B8", textDecoration: "none", whiteSpace: "nowrap", borderRight: i < NAV_AFTER_NODES.length - 1 ? "1px solid rgba(255,255,255,0.06)" : "none", transition: "color 0.2s" }}
+                  onMouseEnter={e => (e.currentTarget.style.color = "#F0F4F8")}
+                  onMouseLeave={e => (e.currentTarget.style.color = "#94A3B8")}
                 >
                   {link.label}
                 </Link>
