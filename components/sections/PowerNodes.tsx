@@ -1,5 +1,7 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
+import { liquidGlassStyle, LiquidGlassHighlight } from "@/components/ui/LiquidGlass";
 
 const NODES = [
   { name: "Power NODE",   spec: "1kW",   sub: "Computing Power", image: "/images/power-node.png",  href: "/products/power-nodes#1kw" },
@@ -12,15 +14,10 @@ export function PowerNodes() {
     <section style={{ padding: "3rem 0 5rem", background: "transparent" }}>
       <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 2.5rem" }}>
         <div style={{
-          border: "1px solid rgba(255,255,255,0.1)",
-          borderRadius: "1rem",
-          overflow: "hidden",
-          background: "rgba(14,20,30,0.3)",
-          backdropFilter: "blur(24px)",
-          WebkitBackdropFilter: "blur(24px)",
-          boxShadow: "inset 0 1px 0 rgba(255,255,255,0.22), inset 0 -1px 0 rgba(255,255,255,0.04)",
+          ...liquidGlassStyle,
           position: "relative",
         }}>
+          <LiquidGlassHighlight />
           {/* Teal top glow line */}
           <div style={{
             position: "absolute", top: 0, left: "5%", right: "5%", height: "1px",

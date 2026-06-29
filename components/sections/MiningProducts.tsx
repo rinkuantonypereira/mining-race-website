@@ -1,5 +1,7 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
+import { liquidGlassStyle, liquidGlassHoverBorder, liquidGlassDefaultBorder, LiquidGlassHighlight } from "@/components/ui/LiquidGlass";
 
 const PRODUCTS = [
   {
@@ -58,26 +60,21 @@ export function MiningProducts() {
             <div
               key={product.name}
               style={{
-                background: "rgba(14,20,30,0.3)",
-                backdropFilter: "blur(24px)",
-                WebkitBackdropFilter: "blur(24px)",
-                border: "1px solid rgba(255,255,255,0.1)",
-                borderRadius: "1rem",
-                overflow: "hidden",
+                ...liquidGlassStyle,
                 display: "flex",
                 flexDirection: "column",
-                transition: "border-color 0.3s, box-shadow 0.3s",
-                boxShadow: "inset 0 1px 0 rgba(255,255,255,0.22), inset 0 -1px 0 rgba(255,255,255,0.04)",
+                transition: "border-color 0.3s",
               }}
               onMouseEnter={e => {
-                e.currentTarget.style.borderColor = "rgba(255,255,255,0.18)";
+                e.currentTarget.style.borderColor = liquidGlassHoverBorder;
                 e.currentTarget.style.boxShadow = "inset 0 1px 0 rgba(255,255,255,0.28), inset 0 -1px 0 rgba(255,255,255,0.06)";
               }}
               onMouseLeave={e => {
-                e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
+                e.currentTarget.style.borderColor = liquidGlassDefaultBorder;
                 e.currentTarget.style.boxShadow = "inset 0 1px 0 rgba(255,255,255,0.22), inset 0 -1px 0 rgba(255,255,255,0.04)";
               }}
             >
+              <LiquidGlassHighlight />
               <div style={{ display: "flex", alignItems: "stretch" }}>
 
                 {/* Image column */}

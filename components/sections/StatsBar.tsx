@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import { liquidGlassStyle, LiquidGlassHighlight } from "@/components/ui/LiquidGlass";
 
 const WalletsIcon = () => (
   <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00C896" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -108,16 +109,9 @@ export function StatsBar() {
   return (
     <div style={{ background: "transparent", padding: "0 0 2rem" }}>
       <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 2.5rem" }}>
-        <div style={{
-          background: "rgba(14,20,30,0.3)",
-          backdropFilter: "blur(24px)",
-          WebkitBackdropFilter: "blur(24px)",
-          borderRadius: "1rem",
-          border: "1px solid rgba(255,255,255,0.1)",
-          position: "relative",
-          overflow: "hidden",
-          boxShadow: "inset 0 1px 0 rgba(255,255,255,0.22), inset 0 -1px 0 rgba(255,255,255,0.04)",
+        <div style={{ ...liquidGlassStyle,
         }}>
+          <LiquidGlassHighlight />
           {/* Bright teal top edge glow */}
           <div style={{
             position: "absolute", top: 0, left: "5%", right: "5%", height: "1px",

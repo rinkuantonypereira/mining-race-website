@@ -1,3 +1,6 @@
+"use client";
+import { liquidGlassStyle, LiquidGlassHighlight } from "@/components/ui/LiquidGlass";
+
 interface DownloadCTAProps { onDownload: () => void; }
 
 export function DownloadCTA({ onDownload }: DownloadCTAProps) {
@@ -5,18 +8,12 @@ export function DownloadCTA({ onDownload }: DownloadCTAProps) {
     <section style={{ padding: "4rem 0 5rem", background: "transparent" }}>
       <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 2.5rem" }}>
         <div style={{
+          ...liquidGlassStyle,
           borderRadius: "1.25rem",
           padding: "5rem 2rem",
-          textAlign: "center",
-          position: "relative",
-          overflow: "hidden",
-          background: "rgba(14,20,30,0.3)",
-          backdropFilter: "blur(24px)",
-          WebkitBackdropFilter: "blur(24px)",
-          border: "1px solid rgba(255,255,255,0.1)",
-          boxShadow: "inset 0 1px 0 rgba(255,255,255,0.22), inset 0 -1px 0 rgba(255,255,255,0.04)",
+          textAlign: "center" as const,
         }}>
-          {/* Top glow line */}
+          <LiquidGlassHighlight />
           <div style={{
             position: "absolute", top: 0, left: "20%", right: "20%", height: "1px",
             background: "linear-gradient(90deg, transparent, rgba(0,200,150,0.5), transparent)",

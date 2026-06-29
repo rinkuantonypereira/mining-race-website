@@ -1,14 +1,11 @@
 "use client";
-import Image from "next/image";
-import { WorldMapCanvas } from "@/components/sections/WorldMap";
 
 interface HeroProps { onDownload: () => void; }
 
 export function Hero({ onDownload }: HeroProps) {
   return (
-    <section style={{ position: "relative", minHeight: "100vh", display: "flex", alignItems: "center", overflow: "hidden", background: "#06060A" }}>
-      {/* World map — stays inside hero only */}
-      <WorldMapCanvas />
+    <section style={{ position: "relative", minHeight: "100vh", display: "flex", alignItems: "center", overflow: "hidden", background: "transparent" }}>
+      {/* World map moved to page level */}
 
       {/* Dark gradient overlays for text readability */}
       <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(6,6,10,0.88) 15%, rgba(6,6,10,0.35) 40%, rgba(6,6,10,0.05) 70%)", zIndex: 2 }} />
@@ -20,30 +17,7 @@ export function Hero({ onDownload }: HeroProps) {
       {/* Teal top accent line */}
       <div style={{ position: "absolute", top: "64px", left: 0, right: 0, height: "2px", background: "linear-gradient(90deg, #00C896, rgba(0,200,150,0.3) 30%, transparent 60%)", zIndex: 20 }} />
 
-      {/* Mascot — absolute positioned flush to extreme right */}
-      <div style={{
-        position: "absolute", right: 0, top: 0, bottom: 0,
-        zIndex: 8, display: "flex", alignItems: "center", justifyContent: "flex-end",
-        width: "50%",
-      }}>
-        <Image
-          src="/images/mascot.png"
-          alt="Mining RACE racer mascot"
-          width={600}
-          height={850}
-          unoptimized
-          style={{
-            objectFit: "contain",
-            height: "92vh",
-            width: "auto",
-            marginRight: "-2rem",
-          }}
-          priority
-        />
-        <p style={{ position: "absolute", bottom: "18%", right: "45%", color: "#00C896", fontSize: "0.9rem", fontWeight: 500, lineHeight: 1.8, textAlign: "right", opacity: 0.6, textShadow: "0 0 30px rgba(0,200,150,0.3)" }}>
-          The Fastest<br />Driven Bitcoin<br />Movement
-        </p>
-      </div>
+      {/* Mascot moved to page level for extended height */}
 
       <div style={{ position: "relative", zIndex: 10, width: "100%", maxWidth: "1280px", margin: "0 auto", padding: "5rem 2.5rem 3rem" }}>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem", alignItems: "center", minHeight: "calc(100vh - 8rem)" }}>
